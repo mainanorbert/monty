@@ -1,10 +1,12 @@
 #include "monty.h"
+void nothing(void);
+op_t x;
 /**
  * main - entry point of program
  * @argc: number of arguments to main
  * @argv: array of strings
+ * Return: returns 0 on success
  */
-op_t x;
 int main(int argc, char *argv[])
 {
 	stack_t *top = NULL;
