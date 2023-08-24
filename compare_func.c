@@ -18,6 +18,7 @@ void (*compare_func(char *str))(stack_t **, unsigned int)
 		{"add", add_func},
 		{"sub", sub_func},
 		{"nop", nop_func},
+		{"div", div_func},
 		{NULL, NULL}};
 	while (instructions[i].opcode)
 	{

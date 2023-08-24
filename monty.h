@@ -58,6 +58,7 @@ char *check_push(char *s, char *ar[], unsigned int l_no, stack_t *stack);
 void add_func(stack_t **stack, unsigned int line_no);
 void nop_func(stack_t **stack, unsigned int line_no);
 void sub_func(stack_t **stack, unsigned int line_no);
+void div_func(stack_t **stack, unsigned int line_no);
 void free_arr(char *args[]);
 void free_stack(stack_t *stack);
 char *_strdup(char *str);

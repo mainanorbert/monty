@@ -52,3 +52,33 @@ void sub_func(stack_t **stack, unsigned int line_no)
 	(*stack)->next->n = sub;
 	pop_func(stack, line_no);
 }
+/**
+ * div_func - divides stack elemenys
+ * @stack: elements of a stack
+ * @line_no: line number to be executed
+ */
+void div_func(stack_t **stack, unsigned int line_no)
+{
+	int div;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_no);
+		free_arr(x.args);
+		free_stack(*stack);
+		fclose(x.file);
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_no);
+		free_arr(x.args);
+		free_stack(*stack);
+		fclose(x.file);
+		exit(EXIT_FAILURE);
+	}
+	div = (*stack)->next->n / (*stack)->n;
+	(*stack)->next->n = div;
+	pop_func(stack, line_no);
+}
+
