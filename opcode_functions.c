@@ -2,7 +2,7 @@
 /**
  * push_func - pushes an element to top of stack
  * @stack: pointer to pointer of the first element in a stack
- * line_number: the value to insert into stack
+ * @line_number: the value to insert into stack
  */
 void push_func(stack_t **stack, unsigned int line_number)
 {
@@ -27,21 +27,24 @@ void push_func(stack_t **stack, unsigned int line_number)
 /**
  * pop_func - removes to element in stack
  * @stack: pointer to pointer of first element
- * Return: returns poped value
+ * @line_number: line currently executed
  */
-/*void pop_func(stack_t **stack, unsigned int line_number)
+void pop_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
-	int n;
 
-	if (stack == NULL)
-		printf("Stack is empty");
-	n = (*stack)->n;
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop empty stack\n", line_number);
+		free_arr(x.args);
+		fclose(x.file);
+		exit(EXIT_FAILURE);
+	}
 	*stack = (*stack)->next;
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
 	free(current);
-}*/
+}
 /**
  * pall_func - prints all elements of a stack
  * @stack: top elemennt in stack
@@ -72,7 +75,7 @@ void pint_func(stack_t **stack, unsigned int line_no)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr,"L%d :can't pint, stack empty\n", line_no);
+		fprintf(stderr, "L%d :can't pint, stack empty\n", line_no);
 		free_arr(x.args);
 		fclose(x.file);
 		exit(EXIT_FAILURE);
