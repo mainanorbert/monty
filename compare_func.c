@@ -14,6 +14,7 @@ void (*compare_func(char *str))(stack_t **, unsigned int)
 		{"pall", pall_func},
 		{"pint", pint_func},
 		{"pop", pop_func},
+		{"swap", swap_func},
 		{NULL, NULL}};
 	while (instructions[i].opcode)
 	{

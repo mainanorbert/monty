@@ -82,3 +82,28 @@ void pint_func(stack_t **stack, unsigned int line_no)
 	}
 	printf("%d\n", (*stack)->n);
 }
+/**
+ * swap_func - function that swaps top two elements
+ * @stack: pointer to pointer of stack swapped
+ * @line_no: line number executed
+ */
+void swap_func(stack_t **stack, unsigned int line_no)
+{
+	stack_t *top, *second;
+	int n;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_no);
+		free_arr(x.args);
+		free_stack(*stack);
+		fclose(x.file);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	second = (*stack)->next;
+	n = (*stack)->n;
+	top->n = second->n;
+	second->n = n;
+}
+
