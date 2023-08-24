@@ -21,4 +21,13 @@ void add_func(stack_t **stack, unsigned int line_no)
 	current->next->n = sum;
 	pop_func(stack, line_no);
 }
-
+/**
+ * nop_func - function that does nothing
+ * @stack: pointer to ponter of first element in stack
+ * @line_no: line being executed
+ */
+void nop_func(stack_t **stack, unsigned int line_no)
+{
+	(void)stack;
+	(void)line_no;
+}
