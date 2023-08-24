@@ -55,6 +55,7 @@ void pint_func(stack_t **stack, unsigned int line_no);
 void swap_func(stack_t **stack, unsigned int line_no);
 void (*compare_func(char *str))(stack_t **, unsigned int);
 char *check_push(char *s, char *ar[], unsigned int l_no, stack_t *stack);
+void add_func(stack_t **stack, unsigned int line_no);
 void free_arr(char *args[]);
 void free_stack(stack_t *stack);
 char *_strdup(char *str);
