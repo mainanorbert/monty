@@ -51,6 +51,7 @@ extern op_t x;
 void push_func(stack_t **stack, unsigned int line_number);
 void pop_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
+void pint_func(stack_t **stack, unsigned int line_no);
 void (*compare_func(char *str))(stack_t **, unsigned int);
 char *check_push(char *s, char *ar[], unsigned int l_no, stack_t *stack);
 void free_arr(char *args[]);

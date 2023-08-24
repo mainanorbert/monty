@@ -63,3 +63,19 @@ void pall_func(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	/*free_stack(stack);*/
 }
+/**
+ * pint_func - function that prints top element of stack
+ * @line_no: current line executed
+ * @stack: stack to print its top element
+ */
+void pint_func(stack_t **stack, unsigned int line_no)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr,"L%d :can't pint, stack empty\n", line_no);
+		free_arr(x.args);
+		fclose(x.file);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
