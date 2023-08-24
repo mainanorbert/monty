@@ -89,10 +89,9 @@ void pint_func(stack_t **stack, unsigned int line_no)
  */
 void swap_func(stack_t **stack, unsigned int line_no)
 {
-	stack_t *top, *second;
-	int n;
+	stack_t *current;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_no);
 		free_arr(x.args);
@@ -100,10 +99,13 @@ void swap_func(stack_t **stack, unsigned int line_no)
 		fclose(x.file);
 		exit(EXIT_FAILURE);
 	}
-	top = *stack;
-	second = (*stack)->next;
-	n = (*stack)->n;
-	top->n = second->n;
-	second->n = n;
-}
+	current = (*stack)->next->next;
+	(*stack)->next->next = current->next;
+	(*stack)->next->prev = current;
+	if (current->next != NULL)
+		current->next->prev = (*stack)->next;
+	current->next = (*stack)->next;
+	current->prev = *stack;
+	(*stack)->next = current;
 
+}
