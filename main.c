@@ -14,13 +14,10 @@ int main(int argc, char *argv[])
 	void (*func)(stack_t **top, unsigned int line_number);
 
 	if (argc != 2)
-		fprintf(stderr, "USAGE:%s file\n", argv[0]), exit(EXIT_FAILURE);
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	x.file = fopen(argv[1], "r");
-	if (!x.file)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		fclose(x.file), exit(EXIT_FAILURE);
-	}
+	if (x.file == NULL || access(argv[1], F_OK) != 0)
+		file_error(argv[1]);
 	while (fgets(line, sizeof(line), x.file) != NULL)
 	{
 		tokens = strtok(line, " \t\n"), token_count = 0;
@@ -38,6 +35,8 @@ int main(int argc, char *argv[])
 		else
 		{
 			func = compare_func(x.args[0]);
+			if (func == NULL)
+				invalid_error(line_no, top);
 			if (strcmp(x.args[0], "push") == 0)
 				str = check_push(x.args[1], x.args, line_no, top), func(&top, atoi(str));
 			else

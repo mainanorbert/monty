@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <unistd.h>
+#include <errno.h>
 #define MAX_TOKENS_PER_LINE 10
 #define MAX_LINE_LENGTH 100
 /**
@@ -54,4 +56,6 @@ char *check_push(char *s, char *ar[], unsigned int l_no, stack_t *stack);
 void free_arr(char *args[]);
 void free_stack(stack_t *stack);
 char *_strdup(char *str);
+void file_error(char *str);
+void invalid_error(unsigned int line_no, stack_t *stack);
 #endif
