@@ -6,8 +6,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
-#define MAX_TOKENS_PER_LINE 10
-#define MAX_LINE_LENGTH 100
+#define MAX_TOKENS_PER_LINE 100
+#define MAX_LINE_LENGTH 200
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
