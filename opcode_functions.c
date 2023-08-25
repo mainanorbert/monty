@@ -75,7 +75,7 @@ void pint_func(stack_t **stack, unsigned int line_no)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d :can't pint, stack empty\n", line_no);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_no);
 		free_arr(x.args);
 		fclose(x.file);
 		exit(EXIT_FAILURE);
