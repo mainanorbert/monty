@@ -91,7 +91,7 @@ void swap_func(stack_t **stack, unsigned int line_no)
 {
 	stack_t *current;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_no);
 		free_arr(x.args);
