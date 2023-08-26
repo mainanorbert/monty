@@ -35,7 +35,7 @@ void pop_func(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		free_arr(x.args);
 		fclose(x.file);
 		exit(EXIT_FAILURE);
